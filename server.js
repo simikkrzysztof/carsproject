@@ -45,10 +45,10 @@ app.get('/list', function (req, res) {
 app.post('/addCar', function (req, res) {
     console.log(req.body);
     const add = {
-        ubezpieczony: req.body(ubezpieczony) == "on" ? "TAK" : "NIE",
-        benzyna: "",
-        uszkodzony: "",
-        naped: "",
+        ubezpieczony: req.body.ubezpieczony == "on" ? "TAK" : "NIE",
+        benzyna: req.body.benzyna == "on" ? "TAK" : "NIE",
+        uszkodzony: req.body.uszkodzony == "on" ? "TAK" : "NIE",
+        naped: req.body.naped == "on" ? "TAK" : "NIE",
     }
     coll1.insert(add, function (err, newDoc) {
         console.log("new car with id = " + newDoc._id + "added to database")
